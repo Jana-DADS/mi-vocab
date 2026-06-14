@@ -1200,7 +1200,7 @@ function Flashcards({ words, progress, settings, setDifficulty, markCorrect, mar
           </div>
           {/* Practice */}
           <PracticeField correctAnswer={isES_first ? wordTranslation(word) : word.es} isES={!isES_first} onNext={next} t={t} />
-          {/* Buttons */
+          {/* Buttons */}
           <div style={{ marginTop:16 }}>
             <DifficultyButtons isLearn={true} wordId={word.id} savedDiff={progress[word.id]?.difficulty || "Default"} diffColor={diffColor} setDifficulty={setDifficulty} />
             <button onClick={next} style={{ width:"100%", padding:"13px 0", borderRadius:10, fontSize:15, fontWeight:600, background:"var(--accent)", color:"#fff", border:"none", marginTop:8 }}>
