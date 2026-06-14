@@ -825,7 +825,7 @@ function TileFilters({ pairMode, onPairMode, filterMode, onFilterMode, filterCat
           color: filterMode===m ? "var(--accent)" : "var(--text2)",
           border: filterMode===m ? "1px solid var(--accent)" : "1px solid var(--border)",
           transition:"all 0.15s"
-        }}>{m==="frequency" ? "By Frequency" : m==="topic" ? "By Topic" : "By Level"}</button>
+        }}>{m==="frequency" ? (t ? t.byFrequency : "By Frequency") : m==="topic" ? (t ? t.byTopic : "By Topic") : (t ? t.byLevel : "By Level")}</button>
       ))}
       {filterMode==="topic" && (
         <select value={filterCategory}
@@ -969,7 +969,7 @@ function DifficultyButtons({ isLearn, wordId, savedDiff, diffColor, setDifficult
 
   return (
     <div style={{ display:"flex", gap:8, justifyContent:"center", marginBottom:10, alignItems:"center" }}>
-      <span style={{ fontSize:12, color:"var(--text2)" }}>{typeof t !== "undefined" ? t.difficulty : "Difficulty:"}</span>
+      <span style={{ fontSize:12, color:"var(--text2)" }}>"Difficulty:"</span>
       {["Easy","Default","Hard"].map(d => (
         <button key={d} onClick={() => {
           if (isLearn) {
@@ -1223,7 +1223,7 @@ function Flashcards({ words, progress, settings, setDifficulty, markCorrect, mar
       {/* Header */}
       <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:20 }}>
         <button onClick={() => setView("dashboard")} style={{ background:"none", border:"none", color:"var(--text2)", fontSize:13, padding:0 }}>{t.back}</button>
-        <span style={{ fontSize:14, fontWeight:600, color:"var(--accent)" }}>{sessionIcon} {sessionLabel} · {isWriting ? t.writing.replace("✏️ ","") : t.flashcards.replace("🃏 ","")} · {pm} · {filterLabel}</span>
+        <span style={{ fontSize:14, fontWeight:600, color:"var(--accent)" }}>{sessionIcon} {sessionLabel} · {isWriting ? "Writing" : "Flashcards"} · {pm} · {filterLabel}</span>
         <div style={{ flex:1 }} />
         {isReview
           ? <span style={{ fontSize:13, color:"var(--text2)" }}>↺ {reviewedIds.size} reviewed</span>
