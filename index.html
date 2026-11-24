@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a4b3c" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Mi Vocab" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
   <title>&#127466;&#127480; Mi Vocab</title>
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -100,7 +107,7 @@ const I18N = {
     myProgress: "My Progress",
     wordsTaughtTotal: "words taught total", wordsTaughtToday: "words taught today",
     todaysReview: "Today's Review", currentStreak: "current streak",
-    settings: "Settings", updateProgress: "Update Progress",
+    settings: "Settings", updateProgress: "Update Progress", preferences: "Preferences",
     uploadVocabulary: "Upload Vocabulary", webPages: "Web Pages",
     newWords: "NEW WORDS", review: "REVIEW",
     startLearning: "▷ START LEARNING", startReview: "▷ START REVIEW",
@@ -122,6 +129,7 @@ const I18N = {
     correct: "✓ Correct!", notQuite: "✗ Not quite",
     searchPlaceholder: "Search ES, EN or #id…",
     dictHeaders: ["#","ES","Pronunciation","Info","EN","Sentence (ES)","Level","Category"],
+    deviceNote: "📱 💻 Your progress is saved in this browser on this device only. It is not shared between your phone and your computer. If you switch to another device, set your progress there by hand on this page.",
     spanishVoiceHint: "🔊 For Spanish pronunciation, install a Spanish voice in your system settings.",
     csvFormatNote: "Columns difficulty and category are optional. Encoding must be UTF-8.",
     lastLoaded: "Last loaded:",
@@ -144,7 +152,7 @@ const I18N = {
     myProgress: "Môj pokrok",
     wordsTaughtTotal: "slov naučených celkom", wordsTaughtToday: "slov naučených dnes",
     todaysReview: "Dnešné opakovanie", currentStreak: "aktuálna séria",
-    settings: "Nastavenia", updateProgress: "Aktualizovať pokrok",
+    settings: "Nastavenia", updateProgress: "Aktualizovať pokrok", preferences: "Predvoľby",
     uploadVocabulary: "Nahrať slovník", webPages: "Webové stránky",
     newWords: "NOVÉ SLOVÁ", review: "OPAKOVANIE",
     startLearning: "▷ ZAČAŤ UČIŤ SA", startReview: "▷ ZAČAŤ OPAKOVANIE",
@@ -166,6 +174,7 @@ const I18N = {
     correct: "✓ Správne!", notQuite: "✗ Nie celkom",
     searchPlaceholder: "Hľadaj ES, SK alebo #id…",
     dictHeaders: ["#","ES","Výslovnosť","Info","SK","Veta (ES)","Úroveň","Kategória"],
+    deviceNote: "📱 💻 Váš pokrok sa ukladá len v tomto prehliadači na tomto zariadení. Medzi telefónom a počítačom sa neprenáša. Ak prejdete na iné zariadenie, nastavte si v ňom pokrok ručne na tejto stránke.",
     spanishVoiceHint: "🔊 Pre španielsku výslovnosť nainštalujte španielsky hlas v nastaveniach systému.",
     csvFormatNote: "Stĺpce difficulty a category sú voliteľné. Kódovanie musí byť UTF-8.",
     lastLoaded: "Naposledy načítané:",
@@ -188,7 +197,7 @@ const I18N = {
     myProgress: "Haladásom",
     wordsTaughtTotal: "megtanult szó összesen", wordsTaughtToday: "megtanult szó ma",
     todaysReview: "Mai ismétlés", currentStreak: "jelenlegi sorozat",
-    settings: "Beállítások", updateProgress: "Haladás frissítése",
+    settings: "Beállítások", updateProgress: "Haladás frissítése", preferences: "Preferenciák",
     uploadVocabulary: "Szójegyzék feltöltése", webPages: "Weboldalak",
     newWords: "ÚJ SZAVAK", review: "ISMÉTLÉS",
     startLearning: "▷ TANULÁS KEZDÉSE", startReview: "▷ ISMÉTLÉS KEZDÉSE",
@@ -210,6 +219,7 @@ const I18N = {
     correct: "✓ Helyes!", notQuite: "✗ Nem egészen",
     searchPlaceholder: "Keresés ES, HU vagy #id…",
     dictHeaders: ["#","ES","Kiejtés","Info","HU","Mondat (ES)","Szint","Kategória"],
+    deviceNote: "📱 💻 Az előrehaladásod csak ebben a böngészőben, ezen az eszközön van elmentve. A telefon és a számítógép között nem szinkronizálódik. Ha másik eszközre váltasz, ott ezen az oldalon kézzel állítsd be az előrehaladásodat.",
     spanishVoiceHint: "🔊 A spanyol kiejtéshez telepítsen egy spanyol hangot a rendszer beállításaiban.",
     csvFormatNote: "A difficulty és category oszlopok opcionálisak. A kódolásnak UTF-8-nak kell lennie.",
     lastLoaded: "Utoljára betöltve:",
@@ -232,7 +242,7 @@ const I18N = {
     myProgress: "Můj pokrok",
     wordsTaughtTotal: "slov naučeno celkem", wordsTaughtToday: "slov naučeno dnes",
     todaysReview: "Dnešní opakování", currentStreak: "aktuální série",
-    settings: "Nastavení", updateProgress: "Aktualizovat pokrok",
+    settings: "Nastavení", updateProgress: "Aktualizovat pokrok", preferences: "Předvolby",
     uploadVocabulary: "Nahrát slovník", webPages: "Webové stránky",
     newWords: "NOVÁ SLOVA", review: "OPAKOVÁNÍ",
     startLearning: "▷ ZAČÍT UČIT", startReview: "▷ ZAČÍT OPAKOVÁNÍ",
@@ -254,6 +264,7 @@ const I18N = {
     correct: "✓ Správně!", notQuite: "✗ Není úplně správně",
     searchPlaceholder: "Hledej ES, CZ nebo #id…",
     dictHeaders: ["#","ES","Výslovnost","Info","CZ","Věta (ES)","Úroveň","Kategorie"],
+    deviceNote: "📱 💻 Váš pokrok se ukládá jen v tomto prohlížeči na tomto zařízení. Mezi telefonem a počítačem se nepřenáší. Pokud přejdete na jiné zařízení, nastavte si v něm pokrok ručně na této stránce.",
     spanishVoiceHint: "🔊 Pro španělskou výslovnost nainstalujte španělský hlas v nastavení systému.",
     csvFormatNote: "Sloupce difficulty a category jsou volitelné. Kódování musí být UTF-8.",
     lastLoaded: "Naposledy načteno:",
@@ -276,7 +287,7 @@ function loadUiLang() { return localStorage.getItem("esUiLang") || "EN"; }
 function saveUiLang(l) { localStorage.setItem("esUiLang", l); }
 
 const DEFAULT_VOCAB_URL = "https://raw.githubusercontent.com/Jana-DADS/mi-vocab/main/new_vocab_es_5000.csv";
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.2.0";
 // Reset stats on new version
 (function() {
   localStorage.setItem("esAppVersion", APP_VERSION);
@@ -384,6 +395,7 @@ async function fetchVocabFromUrl(url) {
 // ── App ────────────────────────────────────────────────────────────────────
 function App() {
   const [view, setView] = useState("dashboard");
+  const [menuOpen, setMenuOpen] = useState(false);   // phone only: is the sidebar slid in?
   const [progress, setProgress] = useState(loadProgress);
   const [dailyReview, setDailyReview] = useState(loadDailyReview);
   const [settings, setSettings] = useState(() => ({
@@ -566,7 +578,7 @@ function App() {
   }
 
   return (
-    <div style={{ display:"flex", flexDirection:"column", height:"100vh", background:"var(--bg)", color:"var(--text)", fontFamily:"'DM Sans',sans-serif" }}>
+    <div className={"mw-root" + (menuOpen ? " mw-menu-open" : "")} style={{ display:"flex", flexDirection:"column", height:"100vh", background:"var(--bg)", color:"var(--text)", fontFamily:"'DM Sans',sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         :root {
@@ -584,14 +596,77 @@ function App() {
         ::-webkit-scrollbar { width:5px; }
         ::-webkit-scrollbar-track { background:transparent; }
         ::-webkit-scrollbar-thumb { background:var(--border); border-radius:10px; }
+        .mw-topbar, .mw-overlay, .mw-close { display:none; }
+        @media (max-width: 760px) {
+          .mw-root { height:100dvh !important; }
+          .mw-topbar { display:flex; align-items:center; gap:12px; background:var(--sidebar); color:#fff; padding:8px 12px; flex-shrink:0; }
+          .mw-topbar button { background:rgba(255,255,255,0.15); color:#fff; border:none; border-radius:8px; width:42px; height:42px; font-size:22px; line-height:1; }
+          .mw-topbar span { font-family:'Lora',serif; font-size:18px; font-weight:600; }
+          .mw-shell { padding:0 !important; height:auto !important; flex:1; min-height:0; }
+          .mw-main { padding:14px 12px 24px !important; }
+          .mw-sidebar { position:fixed; top:0; left:0; bottom:0; width:260px !important; z-index:1001; border-radius:0 !important; transform:translateX(-105%); transition:transform 0.22s ease; }
+          .mw-sidebar button { padding-top:11px !important; padding-bottom:11px !important; font-size:15px !important; }
+          .mw-menu-open .mw-sidebar { transform:none; box-shadow:4px 0 24px rgba(0,0,0,0.35); }
+          .mw-menu-open .mw-overlay { display:block; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:1000; }
+          .mw-menu-open .mw-close { display:block; position:fixed; top:8px; left:212px; z-index:1002; width:40px; height:40px; background:rgba(255,255,255,0.15); color:#fff; border:none; border-radius:8px; font-size:20px; line-height:1; }
+          .mw-links { padding:6px 10px !important; flex-wrap:nowrap !important; overflow-x:auto; }
+          .mw-grid2 { grid-template-columns:1fr !important; }
+          input, select, textarea { font-size:16px !important; min-width:0 !important; }
+          .mw-card { padding:22px 18px !important; }
+          .mw-main code { word-break:break-all; }
+          .mw-dict-page { height:calc(100dvh - 140px) !important; }
+          .mw-dict thead { display:none; }
+          .mw-dict table, .mw-dict tbody, .mw-dict tr { display:block; }
+          .mw-dict tr { position:relative; padding:10px 12px; }
+          .mw-dict td { display:block; padding:1px 0 !important; max-width:none !important; }
+          .mw-dict td:nth-child(1) { position:absolute; top:12px; right:12px; }
+          .mw-dict td:nth-child(2) { font-size:17px; padding-right:48px !important; }
+          .mw-dict td:nth-child(7), .mw-dict td:nth-child(8) { display:inline-block; margin:4px 8px 0 0; }
+        }
+        .mw-kb { display:none; }
+        @media (max-width: 760px) {
+          .mw-kb { display:block; position:fixed; left:0; right:0; bottom:0; z-index:900; background:#d8dde3; padding:3px 3px calc(6px + env(safe-area-inset-bottom)); box-shadow:0 -2px 8px rgba(0,0,0,0.15); }
+          .mw-krow { display:flex; gap:4px; margin:4px 0; }
+          .mw-key { flex:1; min-width:0; height:36px; border:none; border-radius:7px; background:#fff; color:var(--text); font-size:17px; font-family:'DM Sans',sans-serif; box-shadow:0 1px 0 #999; padding:0; touch-action:manipulation; -webkit-user-select:none; user-select:none; }
+          .mw-key:active { filter:brightness(0.85); }
+          body.mw-kb-open .mw-links { display:none !important; }
+          body.mw-kb-open .mw-main { padding-bottom:230px !important; }
+        }
+        @media (max-width: 760px) {
+          body.mw-kb-open .mw-topbar { position:fixed; top:6px; left:6px; z-index:800; padding:0; background:transparent; }
+          body.mw-kb-open .mw-topbar span { display:none; }
+          body.mw-kb-open .mw-topbar button { width:36px; height:36px; font-size:18px; border-radius:50%; background:var(--sidebar); box-shadow:0 2px 6px rgba(0,0,0,0.3); }
+          body.mw-kb-open .mw-main { padding-top:6px !important; }
+          body.mw-kb-open .mw-main [style*="margin-bottom: 20px"][style*="display: flex"] { margin-bottom:6px !important; padding-left:44px; }
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] { padding:12px 16px !important; min-height:0 !important; }
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="font-size: 34px"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="font-size: 30px"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="font-size: 28px"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="font-size: 26px"] { font-size:24px !important; margin-bottom:2px !important; }
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="font-size: 16px"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="font-size: 15px"] { font-size:14px !important; }
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="margin-bottom: 1"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="margin-bottom: 20px"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="margin-bottom: 8px"],
+          body.mw-kb-open .mw-main [style*="border-radius: 16px"] [style*="margin-bottom: 6px"] { margin-bottom:3px !important; }
+          body.mw-kb-open .mw-main [style*="border-top: 1px solid"] { margin-top:8px !important; padding-top:8px !important; }
+          body.mw-kb-open .mw-main [style*="margin-top: 12px"][style*="padding: 10px 12px"] { margin-top:6px !important; padding:6px 10px !important; }
+        }
       `}</style>
 
+      <div className="mw-topbar">
+        <button onClick={() => setMenuOpen(true)} aria-label="Open menu">☰</button>
+        <span>Mi Vocab</span>
+      </div>
+      <div className="mw-overlay" onClick={() => setMenuOpen(false)} />
+      <AppKeyboard />
+      <button className="mw-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
       <div style={{ display:"flex", flexDirection:"column", flex:1, minHeight:0 }}>
-        <div style={{ display:"flex", alignItems:"flex-start", padding:"28px 32px 0 0", height:"calc(100vh - 52px)" }}>
-          <Sidebar view={view} setView={setView} words={words} progress={progress} introducedCount={introducedCount} taughtTodayCount={taughtTodayCount} dailyReview={dailyReview} streak={streak} userLevel={userLevel}
+        <div className="mw-shell" style={{ display:"flex", alignItems:"flex-start", padding:"28px 32px 0 0", height:"calc(100vh - 52px)" }}>
+          <Sidebar view={view} setView={v => { setView(v); setMenuOpen(false); }} words={words} progress={progress} introducedCount={introducedCount} taughtTodayCount={taughtTodayCount} dailyReview={dailyReview} streak={streak} userLevel={userLevel}
             userName={settings.userName} onUserNameChange={n => setSettings(s => ({ ...s, userName: n }))}
             onUpdateProgress={handleUpdateProgress} t={t} uiLang={uiLang} switchUiLang={switchUiLang} />
-          <div style={{ flex:1, minWidth:0, paddingLeft:20, overflowY:"auto", height:"100%" }}>
+          <div className="mw-main" style={{ flex:1, minWidth:0, paddingLeft:20, overflowY:"auto", height:"100%" }}>
             {view==="dashboard"  && words.length === 0 && (
             <div style={{ textAlign:"center", padding:"60px 20px" }}>
               <div style={{ fontSize:48, marginBottom:16 }}>📚</div>
@@ -601,14 +676,16 @@ function App() {
             </div>
           )}
           {view==="dashboard"  && words.length > 0 && <Dashboard words={words} progress={progress} settings={settings} setSettings={setSettings} introducedWords={introducedWords} newWords={newWords} learnedCount={learnedCount} streak={streak} setView={setView} userName={settings.userName} setSessionStartKey={setSessionStartKey} t={t} uiLang={uiLang} />}
-            {view==="flashcards" && <Flashcards key={sessionStartKey} words={words} progress={progress} settings={settings} setDifficulty={setDifficulty} markCorrect={markCorrect} markWrong={markWrong} markIntroduced={markIntroduced} incrementTaughtToday={incrementTaughtToday} incrementDailyReview={incrementDailyReview} setView={setView} introducedWords={introducedWords} lastNewWordId={lastNewWordId} setLastNewWordId={setLastNewWordId} t={t} uiLang={uiLang} />}
+            {view==="flashcards" && <Flashcards key={sessionStartKey} setSettings={setSettings} words={words} progress={progress} settings={settings} setDifficulty={setDifficulty} markCorrect={markCorrect} markWrong={markWrong} markIntroduced={markIntroduced} incrementTaughtToday={incrementTaughtToday} incrementDailyReview={incrementDailyReview} setView={setView} introducedWords={introducedWords} lastNewWordId={lastNewWordId} setLastNewWordId={setLastNewWordId} t={t} uiLang={uiLang} />}
             {view==="dictionary" && <Dictionary words={words} progress={progress} setDifficulty={setDifficulty} t={t} uiLang={uiLang} />}
             {view==="update-progress" && <UpdateProgress introducedCount={introducedCount} taughtTodayCount={taughtTodayCount} streak={streak} streakThreshold={settings.streakThreshold || 10} intervals={settings.intervals || { Hard:1, Default:3, Easy:7 }} onUpdateProgress={handleUpdateProgress} onSaveStreakThreshold={(v) => setSettings(s => ({...s, streakThreshold: v}))} onSaveIntervals={(iv) => setSettings(s => ({...s, intervals: iv}))} t={t} />}
+            {view==="preferences" && <UpdateProgress part="prefs" introducedCount={introducedCount} taughtTodayCount={taughtTodayCount} streak={streak} streakThreshold={settings.streakThreshold || 10} intervals={settings.intervals || { Hard:1, Default:3, Easy:7 }} onUpdateProgress={handleUpdateProgress} onSaveStreakThreshold={(v) => setSettings(s => ({...s, streakThreshold: v}))} onSaveIntervals={(iv) => setSettings(s => ({...s, intervals: iv}))} t={t} />}
+            {view==="preferences" && <KeyboardChoice value={settings.appKeyboard} onChange={v => setSettings(s => ({ ...s, appKeyboard: v }))} />}
             {view==="webpages"    && <WebPages webPages={webPages} saveWebPages={saveWebPages} />}
             {view==="upload"     && <VocabSettings loadVocabFromUrl={loadVocabFromUrl} vocabStatus={vocabStatus} vocabError={vocabError} wordCount={words.length} t={t} />}
           </div>
         </div>
-        <div style={{ borderTop:"1px solid var(--border)", background:"var(--surface)", padding:"8px 24px", display:"flex", alignItems:"center", gap:8, flexShrink:0, flexWrap:"wrap" }}>
+        <div className="mw-links" style={{ borderTop:"1px solid var(--border)", background:"var(--surface)", padding:"8px 24px", display:"flex", alignItems:"center", gap:8, flexShrink:0, flexWrap:"wrap" }}>
           {webPages.map(page => (
             <a key={page.id} href={page.url} target="_blank" rel="noopener noreferrer" style={{
               padding:"6px 14px", background:"var(--accent)", color:"#fff", borderRadius:8,
@@ -659,7 +736,7 @@ function Sidebar({ view, setView, words, progress, introducedCount, taughtTodayC
   }
 
   return (
-    <aside style={{ width:200, background:"var(--sidebar)", display:"flex", flexDirection:"column", padding:"12px 10px 24px", flexShrink:0, alignSelf:"stretch", borderRadius:"0 0 14px 0", overflowY:"auto" }}>
+    <aside className="mw-sidebar" style={{ width:200, background:"var(--sidebar)", display:"flex", flexDirection:"column", padding:"12px 10px 24px", flexShrink:0, alignSelf:"stretch", borderRadius:"0 0 14px 0", overflowY:"auto" }}>
       {/* Logo */}
       <div style={{ padding:"0 6px 10px", borderBottom:"1px solid rgba(255,255,255,0.1)", marginBottom:8 }}>
         <div style={{ color:"#fff", fontFamily:"'Lora',serif", fontSize:16, fontWeight:600 }}>🇪🇸 Mi Vocab</div>
@@ -718,6 +795,7 @@ function Sidebar({ view, setView, words, progress, introducedCount, taughtTodayC
       <div style={{ borderTop:"1px solid rgba(255,255,255,0.1)", marginTop:8, paddingTop:8 }}>
         <div style={{ fontSize:9, textTransform:"uppercase", letterSpacing:"0.1em", color:"rgba(255,255,255,0.35)", padding:"0 6px 6px" }}>{t.settings}</div>
         {[
+          { key:"preferences",     icon:"⚙️", label:t.preferences },
           { key:"update-progress", icon:"🎯", label:t.updateProgress },
           { key:"upload",          icon:"📤", label:t.uploadVocabulary },
           { key:"webpages",        icon:"🌐", label:t.webPages },
@@ -771,7 +849,7 @@ function Dashboard({ words, progress, settings, setSettings, introducedWords, ne
       <SpanishVoiceHint />
 
       {/* Two tiles */}
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:28 }}>
+      <div className="mw-grid2" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20, marginBottom:28 }}>
         <NewWordsTile
           pairMode={settings.learnPairMode}
           onPairMode={m => setSettings(s => ({ ...s, learnPairMode: m }))}
@@ -969,7 +1047,7 @@ function DifficultyButtons({ isLearn, wordId, savedDiff, diffColor, setDifficult
 
   return (
     <div style={{ display:"flex", gap:8, justifyContent:"center", marginBottom:10, alignItems:"center" }}>
-      <span style={{ fontSize:12, color:"var(--text2)" }}>"Difficulty:"</span>
+      <span style={{ fontSize:12, color:"var(--text2)" }}>Difficulty:</span>
       {["Easy","Default","Hard"].map(d => (
         <button key={d} onClick={() => {
           if (isLearn) {
@@ -991,7 +1069,7 @@ function DifficultyButtons({ isLearn, wordId, savedDiff, diffColor, setDifficult
 }
 
 // ── Flashcards ─────────────────────────────────────────────────────────────
-function Flashcards({ words, progress, settings, setDifficulty, markCorrect, markWrong, markIntroduced, incrementTaughtToday, incrementDailyReview, setView, introducedWords, lastNewWordId, setLastNewWordId, t, uiLang }) {
+function Flashcards({ setSettings, words, progress, settings, setDifficulty, markCorrect, markWrong, markIntroduced, incrementTaughtToday, incrementDailyReview, setView, introducedWords, lastNewWordId, setLastNewWordId, t, uiLang }) {
   const isReview = settings.sessionType === "review";
   const isWriting = settings.activeSessionMode === "writing";
 
@@ -1091,6 +1169,33 @@ function Flashcards({ words, progress, settings, setDifficulty, markCorrect, mar
   const levelName = settings.reviewFilterLevel || "All";
   const topicHasTaught = isByTopicDone && queue.length > 0;
 
+  // Review with no taught words in the chosen topic or level: say so, and offer all taught words instead
+  if (isReview && queue.length === 0) {
+    const byTopic = settings.reviewFilterMode === "topic" && settings.reviewFilterCategory && settings.reviewFilterCategory !== "All";
+    const byLevel = settings.reviewFilterMode === "level" && settings.reviewFilterLevel && settings.reviewFilterLevel !== "All";
+    const filtered = (byTopic || byLevel) && introducedWords.length > 0;
+    function reviewAll() {
+      setSettings(s => ({ ...s, reviewFilterMode:"frequency", reviewFilterCategory:"All", reviewFilterLevel:"All" }));
+      setView("dashboard"); setTimeout(() => setView("flashcards"), 0);
+    }
+    return (
+      <div style={{ textAlign:"center", padding:"80px 20px" }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>📭</div>
+        <h2 style={{ fontSize:24, color:"var(--accent)", fontFamily:"'Lora',serif" }}>Nothing to review here yet</h2>
+        <p style={{ color:"var(--text2)", marginTop:8, lineHeight:1.6 }}>
+          {byTopic ? `You have no taught words in the topic "${settings.reviewFilterCategory}" yet.`
+            : byLevel ? `You have no taught words at level ${settings.reviewFilterLevel} yet.`
+            : "You have no taught words yet. Start with New Words."}
+          {filtered && <><br/>You have {introducedWords.length} taught {introducedWords.length === 1 ? "word" : "words"} in other topics and levels.</>}
+        </p>
+        <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap", marginTop:24 }}>
+          <button onClick={() => setView("dashboard")} style={{ padding:"11px 24px", background:"var(--surface2)", color:"var(--text)", border:"1px solid var(--border)", borderRadius:10, fontSize:14 }}>← Back</button>
+          {filtered && <button onClick={reviewAll} style={{ padding:"11px 24px", background:"var(--accent)", color:"#fff", border:"none", borderRadius:10, fontSize:14, fontWeight:600 }}>Review all taught words</button>}
+        </div>
+      </div>
+    );
+  }
+
   if (done||!word) return (
     <div style={{ textAlign:"center", padding:"80px 20px" }}>
       <div style={{ fontSize:48, marginBottom:16 }}>{isByTopicDone && !topicHasTaught ? "📭" : "🎉"}</div>
@@ -1180,7 +1285,7 @@ function Flashcards({ words, progress, settings, setDifficulty, markCorrect, mar
           <div style={{ flex:1 }} />
           <span style={{ fontSize:13, color:"var(--accent)", fontWeight:600 }}>✦ {taughtTodayFromStorage} today</span>
         </div>
-        <div style={{ background:"var(--surface)", border:"1px solid var(--border)", borderRadius:16, boxShadow:"var(--shadow)", padding:"32px 36px" }}>
+        <div style={{ background:"var(--surface)", border:"1px solid var(--border)", borderRadius:16, boxShadow:"var(--shadow)", padding:"32px 36px" }} className="mw-card">
           {/* Front */}
           <div style={{ fontSize:11, textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--accent2)", marginBottom:8 }}>{isES_first ? t.español : t.english}</div>
           <div style={{ fontSize:30, fontWeight:600, color:"var(--accent)", marginBottom:4, fontFamily:"'Lora',serif", display:"flex", alignItems:"center", gap:8 }}>
@@ -1317,7 +1422,7 @@ function Dictionary({ words, progress, setDifficulty, t, uiLang }) {
   });
 
   return (
-    <div style={{ height:"calc(100vh - 120px)", display:"flex", flexDirection:"column" }}>
+    <div className="mw-dict-page" style={{ height:"calc(100vh - 120px)", display:"flex", flexDirection:"column" }}>
       <h2 style={{ fontSize:22, marginBottom:16, color:"var(--text)", fontFamily:"'Lora',serif", flexShrink:0 }}>{t.dictionary}</h2>
       <SpanishVoiceHint />
       <div style={{ display:"flex", gap:10, marginBottom:16, flexWrap:"wrap", flexShrink:0 }}>
@@ -1333,7 +1438,7 @@ function Dictionary({ words, progress, setDifficulty, t, uiLang }) {
         </select>
         <span style={{ fontSize:13, color:"var(--text2)", alignSelf:"center" }}>{filtered.length} words</span>
       </div>
-      <div style={{ flex:1, overflowY:"auto", overflowX:"auto", background:"var(--surface)", borderRadius:12, border:"1px solid var(--border)", boxShadow:"var(--shadow)" }}>
+      <div className="mw-dict" style={{ flex:1, overflowY:"auto", overflowX:"auto", background:"var(--surface)", borderRadius:12, border:"1px solid var(--border)", boxShadow:"var(--shadow)" }}>
         <table style={{ width:"100%", borderCollapse:"collapse", fontSize:14 }}>
           <thead style={{ position:"sticky", top:0, zIndex:10 }}>
             <tr style={{ background:"var(--surface2)", borderBottom:"2px solid var(--border)" }}>
@@ -1369,7 +1474,7 @@ function Dictionary({ words, progress, setDifficulty, t, uiLang }) {
 }
 
 // ── UpdateProgress ────────────────────────────────────────────────────────
-function UpdateProgress({ introducedCount, taughtTodayCount, streak, onUpdateProgress, streakThreshold, onSaveStreakThreshold, intervals, onSaveIntervals, t }) {
+function UpdateProgress({ part, introducedCount, taughtTodayCount, streak, onUpdateProgress, streakThreshold, onSaveStreakThreshold, intervals, onSaveIntervals, t }) {
   const iv = intervals || { Hard:1, Default:3, Easy:7 };
   const [pTaught, setPTaught] = useState(String(introducedCount));
   const [pToday, setPToday] = useState(String(taughtTodayCount));
@@ -1387,7 +1492,7 @@ function UpdateProgress({ introducedCount, taughtTodayCount, streak, onUpdatePro
     const streakThr = Math.max(1, parseInt(pStreakThreshold) || 10);
     setPStreakThreshold(String(streakThr));
     onSaveStreakThreshold(streakThr);
-    onUpdateProgress(taught, today, 0, s);
+    if (part !== "prefs") onUpdateProgress(taught, today, 0, s);
     const newIntervals = { Hard: Math.max(1, parseInt(pHard) || 1), Default: Math.max(1, parseInt(pDefault) || 3), Easy: Math.max(1, parseInt(pEasy) || 7) };
     onSaveIntervals(newIntervals);
     setSaved(true);
@@ -1396,12 +1501,18 @@ function UpdateProgress({ introducedCount, taughtTodayCount, streak, onUpdatePro
 
   return (
     <div style={{ maxWidth:500 }}>
-      <h2 style={{ fontSize:22, marginBottom:6, color:"var(--text)", fontFamily:"'Lora',serif" }}>{t ? t.updateProgress : "Update Progress"}</h2>
+      <h2 style={{ fontSize:22, marginBottom:6, color:"var(--text)", fontFamily:"'Lora',serif" }}>{part === "prefs" ? t.preferences : (t ? t.updateProgress : "Update Progress")}</h2>
+      {part !== "prefs" && (<>
       <p style={{ color:"var(--text2)", fontSize:14, marginBottom:20, lineHeight:1.6 }}>
         Manually set your progress — useful for advanced learners or after an accidental reset.
         <br/><em style={{fontSize:12}}>Note: "Words taught today" cannot exceed "Words taught total".</em>
       </p>
+      <div style={{ background:"var(--accent-light)", border:"1px solid var(--accent)", borderRadius:10, padding:"10px 14px", marginBottom:20, fontSize:13, color:"var(--text)", lineHeight:1.5 }}>
+        {t.deviceNote}
+      </div>
+      </>)}
       <div style={{ background:"var(--surface)", border:"1px solid var(--border)", borderRadius:12, padding:"20px 24px", marginBottom:20 }}>
+        {part !== "prefs" && (
         <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:16 }}>
           {[
             { label: t ? t.wordsTaughtTotalLabel : "Words taught total", val:pTaught, set:setPTaught, desc:"Words studied in New Words → By Frequency (Flashcard or Writing). By Topic sessions do not count." },
@@ -1421,6 +1532,8 @@ function UpdateProgress({ introducedCount, taughtTodayCount, streak, onUpdatePro
             </div>
           ))}
         </div>
+        )}
+        {part === "prefs" && (<>
         {/* Learning Rules */}
         <div style={{ fontSize:13, fontWeight:600, color:"var(--text)", margin:"16px 0 8px" }}>{t ? t.learnRules : "Learning Rules"}</div>
         <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:16 }}>
@@ -1455,11 +1568,12 @@ function UpdateProgress({ introducedCount, taughtTodayCount, streak, onUpdatePro
             </div>
           ))}
         </div>
+        </>)}
         <button onClick={handleSave} style={{
           padding:"10px 24px", background: saved ? "var(--easy)" : "var(--accent)",
           color:"#fff", border:"none", borderRadius:8, fontSize:14, fontWeight:600, transition:"background 0.2s"
         }}>
-          {saved ? "✓ Saved!" : "Save progress"}
+          {saved ? "✓ Saved!" : part === "prefs" ? "Save" : "Save progress"}
         </button>
       </div>
     </div>
@@ -1643,6 +1757,97 @@ function VocabSettings({ loadVocabFromUrl, vocabStatus, vocabError, wordCount, t
   );
 }
 
+// ── App keyboard (phones) ──────────────────────────────────────────────────
+// On a narrow touch screen the phone keyboard stays hidden (inputMode "none") and this keyboard types into the field.
+// Setting "appKeyboard": "qwerty" (default), "qwertz" or "off" (the phone's own keyboard).
+const APP_KB_SPECIAL = [["á", "é", "í", "ó", "ú", "ü", "ñ", "¿", "¡"]];
+function appKbLayout() { const k = loadSettings().appKeyboard; return k === "off" ? null : (k === "qwertz" ? "qwertz" : "qwerty"); }
+function appKbActive() {
+  try { return !!appKbLayout() && window.matchMedia("(max-width: 760px) and (pointer: coarse)").matches; } catch { return false; }
+}
+function typeInto(el, fn) {              // change a React-controlled input the way typing does
+  const v = el.value, a = el.selectionStart ?? v.length, b = el.selectionEnd ?? v.length;
+  const [nv, caret] = fn(v, a, b);
+  Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set.call(el, nv);
+  el.dispatchEvent(new Event("input", { bubbles: true }));
+  try { el.setSelectionRange(caret, caret); } catch {}
+}
+function keepAboveKeyboard(el) {        // scroll only as far as needed: the field sits just above the keyboard, the word stays in view
+  const kb = document.querySelector(".mw-kb"), box = el.closest(".mw-main");
+  if (!kb || !box) return;
+  const over = el.getBoundingClientRect().bottom - kb.getBoundingClientRect().top + 10;
+  if (over > 0) box.scrollBy({ top: over, behavior: "smooth" });
+}
+function AppKeyboard() {
+  const [target, setTarget] = useState(null);
+  const [shift, setShift] = useState(false);
+  const [, tick] = useState(0);
+  useEffect(() => {
+    function onFocus(e) { if (e.target.dataset && e.target.dataset.appkb) setTarget(e.target); }
+    document.addEventListener("focusin", onFocus);
+    const t = setInterval(() => tick(n => n + 1), 300);   // notices a field that was disabled or removed
+    return () => { document.removeEventListener("focusin", onFocus); clearInterval(t); };
+  }, []);
+  const visible = appKbActive() && target && document.body.contains(target);
+  useEffect(() => { document.body.classList.toggle("mw-kb-open", !!visible); }, [visible]);
+  if (!visible) return null;
+  const top = appKbLayout() === "qwertz" ? "qwertzuiop" : "qwertyuiop";
+  const bottom = appKbLayout() === "qwertz" ? "yxcvbnm" : "zxcvbnm";
+  const up = c => shift ? c.toUpperCase() : c;
+  const key = (label, fn, style = {}) => (
+    <button key={label} onPointerDown={e => { e.preventDefault(); fn(); }} className="mw-key" style={style}>{label}</button>
+  );
+  const ins = c => { typeInto(target, (v, a, b) => [v.slice(0, a) + c + v.slice(b), a + c.length]); if (shift) setShift(false); };
+  const del = () => typeInto(target, (v, a, b) => a !== b ? [v.slice(0, a) + v.slice(b), a] : a > 0 ? [v.slice(0, a - 1) + v.slice(a), a - 1] : [v, 0]);
+  const press = k => target.dispatchEvent(new KeyboardEvent("keydown", { key: k, bubbles: true }));
+  function next() {                        // the Next button that is on screen, else Tab as on a computer
+    const b = [...document.querySelectorAll(".mw-main button")].find(x => /^Next/.test(x.textContent.trim()) && x.offsetParent);
+    if (b) b.click(); else press("Tab");
+  }
+  const done = target.disabled;            // answer checked: the field is locked, only Next makes sense
+  const row = chars => <div className="mw-krow">{[...chars].map(c => key(up(c), () => ins(up(c))))}</div>;
+  return (
+    <div className="mw-kb">
+      {APP_KB_SPECIAL.map((r, i) => <div key={i} className="mw-krow">{r.map(c => key(up(c) === "SS" ? c : up(c), () => ins(up(c) === "SS" ? c : up(c)), { background:"var(--accent-light)", color:"var(--accent)", fontWeight:600 }))}</div>)}
+      {row(top)}
+      {row("asdfghjkl")}
+      <div className="mw-krow">
+        {key("⇧", () => setShift(s => !s), { flex:1.4, background: shift ? "var(--accent)" : "#b9c0c8", color: shift ? "#fff" : "var(--text)" })}
+        {[...bottom].map(c => key(up(c), () => ins(up(c))))}
+        {key("⌫", del, { flex:1.4, background:"#b9c0c8" })}
+      </div>
+      <div className="mw-krow">
+        {key("-", () => ins("-"), { background:"#b9c0c8" })}
+        {key("'", () => ins("'"), { background:"#b9c0c8" })}
+        {key(" ", () => ins(" "), { flex:4 })}
+        {key("Next →", next, { flex: done ? 4 : 2, background: done ? "var(--accent)" : "#b9c0c8", color: done ? "#fff" : "var(--text)", fontSize:14, fontWeight:600 })}
+        {!done && key("Check", () => press("Enter"), { flex:2.4, background:"var(--accent)", color:"#fff", fontSize:14, fontWeight:600 })}
+      </div>
+    </div>
+  );
+}
+
+// ── Keyboard choice (Preferences page) ────────────────────────────────────
+function KeyboardChoice({ value, onChange }) {
+  const v = value || "qwerty";
+  const opt = (k, title, note) => (
+    <button onClick={() => onChange(k)} style={{ flex:"1 1 140px", padding:"10px 12px", borderRadius:10, fontSize:14, fontWeight:600, textAlign:"left",
+      border: v === k ? "2px solid var(--accent)" : "1px solid var(--border)", background: v === k ? "var(--accent-light)" : "var(--surface)", color:"var(--text)" }}>
+      {title}<div style={{ fontSize:12, fontWeight:400, color:"var(--text2)", marginTop:2 }}>{note}</div></button>
+  );
+  return (
+    <div style={{ maxWidth:500, marginBottom:20 }}>
+      <div style={{ fontSize:15, fontWeight:600, color:"var(--text)", marginBottom:8 }}>Keyboard on phones</div>
+      <div style={{ display:"flex", gap:10, flexWrap:"wrap", marginBottom:8 }}>
+        {opt("qwerty", "App keyboard QWERTY", "With á é í ó…, smaller")}
+        {opt("qwertz", "App keyboard QWERTZ", "German layout")}
+        {opt("off", "Phone keyboard", "Your phone's own keyboard")}
+      </div>
+      <p style={{ fontSize:12, color:"var(--text2)", lineHeight:1.5 }}>Used when you type an answer on a phone. On a computer you always type on your own keyboard.</p>
+    </div>
+  );
+}
+
 // ── PracticeField ─────────────────────────────────────────────────────────
 const ES_CHARS_PRACTICE = ["á","é","í","ó","ú","ü","ñ","¿","¡"];
 function PracticeField({ correctAnswer, isES, onCorrect, onNext, t }) {
@@ -1652,7 +1857,7 @@ function PracticeField({ correctAnswer, isES, onCorrect, onNext, t }) {
   useEffect(() => {
     setVal("");
     setLastAttempt(null);
-    setTimeout(() => inputRef.current?.focus(), 50);
+    setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 50);
   }, [correctAnswer]);
 
   function check() {
@@ -1661,7 +1866,7 @@ function PracticeField({ correctAnswer, isES, onCorrect, onNext, t }) {
     setLastAttempt({ text: val, ok });
     setVal("");
     if (ok && onCorrect) onCorrect();
-    inputRef.current?.focus();
+    inputRef.current?.focus({ preventScroll: true });
   }
 
   function handleKeyDown(e) {
@@ -1684,16 +1889,17 @@ function PracticeField({ correctAnswer, isES, onCorrect, onNext, t }) {
         </div>
       )}
       <div style={{ display:"flex", gap:6, alignItems:"center" }}>
-        <input ref={inputRef} value={val} onChange={e => setVal(e.target.value)}
+        <input ref={inputRef} value={val} onChange={e => setVal(e.target.value)} data-appkb="1" inputMode={appKbActive() ? "none" : undefined}
+          onFocus={e => appKbActive() && setTimeout(() => keepAboveKeyboard(e.target), 80)}
           onKeyDown={handleKeyDown}
           placeholder={lastAttempt?.ok ? "Keep practising…" : `Type "${correctAnswer}"…`}
           style={{ flex:1, padding:"6px 10px", borderRadius:6, border:"1px solid var(--border)", fontSize:13, outline:"none" }} />
         <button onClick={check} style={{ padding:"6px 12px", background:"var(--accent)", color:"#fff", border:"none", borderRadius:6, fontSize:12 }}>Check</button>
       </div>
-      {isES && (
+      {isES && !appKbActive() && (
         <div style={{ display:"flex", gap:3, flexWrap:"wrap", marginTop:6 }}>
           {ES_CHARS_PRACTICE.map(c => (
-            <button key={c} onClick={() => { setVal(v => v + c); inputRef.current?.focus(); }}
+            <button key={c} onClick={() => { setVal(v => v + c); inputRef.current?.focus({ preventScroll: true }); }}
               style={{ padding:"2px 7px", fontSize:13, borderRadius:4, border:"1px solid var(--border)", background:"var(--surface)", color:"var(--text)" }}>{c}</button>
           ))}
         </div>
@@ -1715,7 +1921,7 @@ function WritingCard({ word, idx, total, isFR_first, prog, curDiff, diffColor, o
   useEffect(() => {
     setInput(""); setChecked(false); setCorrect(false);
     setCurDiffLocal(curDiff); // reset to saved difficulty (or Default) for each new word
-    setTimeout(() => inputRef.current?.focus(), 50);
+    setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 50);
   }, [word.id]);
 
   function wordTranslation(w) {
@@ -1783,7 +1989,7 @@ function WritingCard({ word, idx, total, isFR_first, prog, curDiff, diffColor, o
         <span style={{ fontSize:13, color:"var(--text2)" }}>↺ {reviewedCount || 0} reviewed</span>
       </div>
 
-      <div style={{ background:"var(--surface)", border:"1px solid var(--border)", borderRadius:16, boxShadow:"var(--shadow)", padding:"32px 36px" }}>
+      <div style={{ background:"var(--surface)", border:"1px solid var(--border)", borderRadius:16, boxShadow:"var(--shadow)", padding:"32px 36px" }} className="mw-card">
         {/* Prompt */}
         <div style={{ fontSize:11, textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--accent2)", marginBottom:10 }}>{promptLang}</div>
         <div style={{ fontSize:30, fontWeight:600, color:"var(--accent)", marginBottom:6, fontFamily:"'Lora',serif", display:"flex", alignItems:"center", gap:8 }}>
@@ -1809,7 +2015,8 @@ function WritingCard({ word, idx, total, isFR_first, prog, curDiff, diffColor, o
         <div style={{ fontSize:11, textTransform:"uppercase", letterSpacing:"0.1em", color:"var(--accent2)", marginBottom:8 }}>
           {isLearn ? (t ? t.nowTryWriting : "Now try writing it") : answerLang}
         </div>
-        <input ref={inputRef} value={input} onChange={e => setInput(e.target.value)}
+        <input ref={inputRef} value={input} onChange={e => setInput(e.target.value)} data-appkb="1" inputMode={appKbActive() ? "none" : undefined}
+          onFocus={e => appKbActive() && setTimeout(() => keepAboveKeyboard(e.target), 80)}
           onKeyDown={e => { if (e.key==="Enter" && !checked) check(); else if (e.key==="Enter" && checked) handleNext(null); }}
           disabled={checked}
           placeholder={`Type the ${answerLang === (t ? t.español : "ES") ? "Spanish" : "translation"}…`}
@@ -1821,10 +2028,10 @@ function WritingCard({ word, idx, total, isFR_first, prog, curDiff, diffColor, o
           }} />
 
         {/* ES character buttons — show when typing Spanish */}
-        {(!isES_first || isLearn) && (
+        {(!isES_first || isLearn) && !appKbActive() && (
           <div style={{ display:"flex", gap:4, flexWrap:"wrap", marginTop:10 }}>
             {ES_CHARS.map(c => (
-              <button key={c} onClick={() => { setInput(v => v + c); inputRef.current?.focus(); }}
+              <button key={c} onClick={() => { setInput(v => v + c); inputRef.current?.focus({ preventScroll: true }); }}
                 disabled={checked && !isLearn}
                 style={{ padding:"3px 9px", fontSize:14, borderRadius:6, border:"1px solid var(--border)", background:"var(--surface2)", color:"var(--text)", fontFamily:"serif" }}>{c}</button>
             ))}
